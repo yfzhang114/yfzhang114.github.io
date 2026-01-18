@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yi-Fan Zhang | PhD Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Source+Serif+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --text: #333333;
+            --text-light: #666666;
+            --bg: #ffffff;
+            --bg-alt: #f8f9fa;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+            background: var(--bg);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .header-text h1 {
+            font-family: 'Source Serif Pro', Georgia, serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .header-text .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .header-text p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.9rem;
+            color: var(--text);
+            padding: 0.4rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .contact-links a:hover {
+            background: var(--bg-alt);
+            text-decoration: none;
+            border-color: var(--accent);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-alt);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.75rem 0;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Sections */
+        section {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: 'Source Serif Pro', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* About Section */
+        .about-content {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background: var(--bg-alt);
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        /* Research Interests */
+        .research-list {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .research-item {
+            padding-left: 1.25rem;
+            border-left: 2px solid var(--border);
+        }
+
+        .research-item h3 {
+            margin-bottom: 0.35rem;
+        }
+
+        .research-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Publications */
+        .pub-year {
+            font-family: 'Source Serif Pro', Georgia, serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pub-year:first-of-type {
+            margin-top: 0;
+        }
+
+        .pub-item {
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .pub-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .pub-title a {
+            color: var(--text);
+        }
+
+        .pub-title a:hover {
+            color: var(--accent);
+        }
+
+        .pub-authors {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0.35rem 0;
+        }
+
+        .pub-authors .me {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .pub-venue {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .pub-venue .venue-name {
+            font-weight: 600;
+            color: var(--secondary);
+            font-style: normal;
+        }
+
+        .pub-links {
+            margin-top: 0.5rem;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-links a {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            color: var(--text-light);
+        }
+
+        .pub-links a:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Publication badges */
+        .pub-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            margin-left: 0.5rem;
+            text-transform: uppercase;
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .pub-badge.oral {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .pub-badge.spotlight {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .pub-badge.award {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .pub-badge.corresponding {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .pub-badge.core {
+            background: #fce4ec;
+            color: #c2185b;
+        }
+
+        /* GitHub Stars Badge */
+        .github-stars {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.75rem;
+            padding: 0.15rem 0.5rem;
+            background: #f6f8fa;
+            border: 1px solid #d0d7de;
+            border-radius: 3px;
+            color: #24292f;
+            margin-left: 0.5rem;
+            font-weight: 500;
+        }
+
+        .github-stars svg {
+            width: 12px;
+            height: 12px;
+            fill: #f0c14b;
+        }
+
+        /* News */
+        .news-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9rem;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            white-space: nowrap;
+            min-width: 85px;
+        }
+
+        .news-content {
+            color: var(--text);
+        }
+
+        /* Experience */
+        .exp-list-simple {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .exp-item-simple {
+            padding: 1rem 1.25rem;
+            border-left: 3px solid var(--accent);
+            background: var(--bg-alt);
+        }
+
+        .exp-item-simple h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-item-simple p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Service */
+        .service-category {
+            margin-bottom: 1.25rem;
+        }
+
+        .service-category h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-category p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Awards */
+        .awards-list {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .award-item {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .award-item:last-child {
+            border-bottom: none;
+        }
+
+        .award-year {
+            color: var(--accent);
+            font-weight: 600;
+            min-width: 50px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            background: var(--bg-alt);
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .contact-links {
+                justify-content: center;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            .exp-list-simple {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <img src="photo.jpg" alt="Yi-Fan Zhang" class="profile-photo">
+                <div class="header-text">
+                    <h1>Yi-Fan Zhang (张一帆)</h1>
+                    <div class="subtitle">PhD Candidate, University of Chinese Academy of Sciences</div>
+                    <p>State Key Laboratory of Pattern Recognition</p>
+                    <p>Advised by Prof. <a href="http://people.ucas.ac.cn/~tantieniu">Tieniu Tan</a></p>
+                    <div class="contact-links">
+                        <a href="mailto:zhangyifan@ucas.ac.cn">📧 Email</a>
+                        <a href="https://scholar.google.com/citations?user=lUnt8X4AAAAJ">📚 Google Scholar</a>
+                        <a href="https://github.com/yfzhang114">💻 GitHub</a>
+                        <a href="https://twitter.com/yfzhang114">🐦 Twitter</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#service">Service</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- About -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>
+                    I am a final-year PhD student at the State Key Laboratory of Pattern Recognition, University of Chinese Academy of Sciences. My research focuses on <strong>training and evaluation of multimodal large language models (MLLMs)</strong>. Recently, I am particularly interested in building <strong>agentic MLLMs with infinite context length and unlimited exploration space</strong>, as well as developing <strong>advanced memory management mechanisms</strong> to enhance the perception capabilities of MLLMs.
+                </p>
+                <p>
+                    I have published <strong>15+ papers</strong> as first author / co-first author / corresponding author at top-tier venues, with <strong>4,500+ citations</strong> in total and <strong>2,100+ citations</strong> for my most cited first-author work.
+                </p>
+                <p>
+                    Previously, I have been fortunate to work with Prof. <a href="https://jingdongwang2017.github.io/">Jingdong Wang</a> at Microsoft Research Asia and Prof. <a href="https://scholar.google.com/citations?user=CS5uNscAAAAJ">Rong Jin</a> at Alibaba DAMO Academy. I have also interned at ByteDance, Kuaishou, Skywork, and Squirrel AI.
+                </p>
+                <div class="highlight-box">
+                    <strong>I am actively seeking research positions in both industry and academia.</strong> If you are interested in collaboration, internship opportunities, or research discussions, please feel free to reach out.
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Interests -->
+        <section id="research">
+            <h2>Research Interests</h2>
+            <div class="research-list">
+                <div class="research-item">
+                    <h3>Multimodal Model Training</h3>
+                    <p>
+                        Developing vision-language models (<a href="https://github.com/yfzhang114/SliME">SliME (150+ ⭐)</a>, <a href="https://github.com/Kwai-Keye/Keye">Keye-VL (700+ ⭐)</a>), omni-modal MLLMs (<a href="https://github.com/VITA-MLLM/VITA">VITA (3k+ ⭐)</a>), and agentic systems (<a href="https://thyme-vl.github.io/">Thyme (500+ ⭐)</a>, <a href="https://skywork-r1v4.netlify.app/">Skywork R1V4 (3k+ ⭐)</a>). I believe that the agentic capabilities of MLLMs are directly tied to their perception abilities.
+                    </p>
+                </div>
+                <div class="research-item">
+                    <h3>Model Evaluation</h3>
+                    <p>
+                        Building comprehensive evaluation frameworks including <a href="https://mme-realworld.github.io/">MME-RealWorld (30k+ Download)</a>, <a href="https://mme-unify.github.io/">MME-Unify (5k+ Download)</a>, <a href="https://github.com/FrankYang-17/MME-VideoOCR">MME-VideoOCR</a>, <a href="https://arxiv.org/abs/2411.15296">MME-Survey</a>, and <a href="https://github.com/open-compass/VLMEvalKit">VLMEvalKit</a> (3k+ ⭐). I am always pursuing benchmarks that truly align with human preferences and reflect real-world needs.
+                    </p>
+                </div>
+                <div class="research-item">
+                    <h3>Post-Training & Reward Modeling</h3>
+                    <p>
+                        Developing alignment techniques for MLLMs through <a href="https://mm-rlhf.github.io/">MM-RLHF (200 ⭐)</a>, <a href="https://github.com/yfzhang114/r1_reward">R1-Reward (250+ ⭐)</a>, <a href="https://arxiv.org/abs/2509.16127">BaseReward</a>, and contributing to the <a href="https://arxiv.org/abs/2503.14504">MLLM Alignment Survey</a>. Recently, I am more interested in rubric-based rewards and self-evolving reward systems.
+                    </p>
+                </div>
+                <div class="research-item">
+                    <h3>Applications & ML Systems</h3>
+                    <p>
+                        Applying MLLMs to practical domains including time-series forecasting, AI for education, and content moderation. I am also interested in continual learning, out-of-distribution generalization, and other ML system challenges.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- News -->
+        <section id="news">
+            <h2>News</h2>
+            <div class="news-list">
+                <div class="news-item">
+                    <span class="news-date">Dec 2025</span>
+                    <span class="news-content">🎉 Two papers accepted by <strong>IEEE T-PAMI</strong> (IF: 18.6)!</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Oct 2025</span>
+                    <span class="news-content">🎉 VITA 1.5 (Spotlight) and MME-VideoOCR accepted by <strong>NeurIPS 2025</strong>!</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Sep 2025</span>
+                    <span class="news-content">🚀 Released <a href="https://thyme-vl.github.io/">Thyme</a> - thinking beyond images with executable code generation.</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Jul 2025</span>
+                    <span class="news-content">🚀 Released <a href="https://github.com/Kwai-Keye/Keye">Kwai Keye-VL</a>, a cutting-edge MLLM by Kuaishou.</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">May 2025</span>
+                    <span class="news-content">🎉 <a href="https://mm-rlhf.github.io/">MM-RLHF</a> and <a href="https://arxiv.org/abs/2502.01943">DAMO</a> accepted by <strong>ICML 2025</strong>!</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">May 2025</span>
+                    <span class="news-content">🚀 Released <a href="https://github.com/yfzhang114/r1_reward">R1-Reward</a> for multimodal reward modeling.</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Apr 2025</span>
+                    <span class="news-content">🚀 Released <a href="https://mme-unify.github.io/">MME-Unify</a> benchmark for unified multimodal models.</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Feb 2025</span>
+                    <span class="news-content">🚀 Released <a href="https://github.com/yfzhang114/MM-RLHF">MM-RLHF</a> dataset with 120K human preference annotations.</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Jan 2025</span>
+                    <span class="news-content">🎉 <a href="https://mme-realworld.github.io/">MME-RealWorld</a> accepted by <strong>ICLR 2025</strong>!</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Jun 2024</span>
+                    <span class="news-content">🚀 Released <a href="https://github.com/yfzhang114/SliME">SliME</a> - Beyond LLaVA-HD for High-Resolution MLLMs.</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Mar 2024</span>
+                    <span class="news-content">🎉 Two papers on ICL and symbolic reasoning accepted by <strong>NAACL 2024</strong>!</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Oct 2023</span>
+                    <span class="news-content">🎉 <a href="https://github.com/yfzhang114/OneNet">OneNet</a> accepted by <strong>NeurIPS 2023</strong>.</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">May 2023</span>
+                    <span class="news-content">🎉 AdaNPC accepted by <strong>ICML 2023</strong>, DRM accepted by <strong>KDD 2023</strong>.</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Jan 2023</span>
+                    <span class="news-content">🎉 Environment Label Smoothing accepted by <strong>ICLR 2023</strong>.</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">Apr 2022</span>
+                    <span class="news-content">🎉 DDG selected for <strong>CVPR 2022 Oral</strong> presentation.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section id="publications">
+            <h2>Selected Publications</h2>
+            <p style="margin-bottom: 1.5rem; color: var(--text-light); font-size: 0.9rem;">
+                Full list available on <a href="https://scholar.google.com/citations?user=lUnt8X4AAAAJ">Google Scholar</a>. (* denotes equal contribution, † denotes corresponding author)
+            </p>
+
+            <div class="pub-year">First Author Papers</div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://mme-realworld.github.io/">MME-RealWorld: Could Your Multimodal LLM Challenge High-Resolution Real-World Scenarios that are Difficult for Humans?</a>
+                    <span class="pub-badge">First Author</span>
+                </div>
+                <div class="pub-authors">
+                    <span class="me">Yi-Fan Zhang</span>, et al.
+                </div>
+                <div class="pub-venue"><span class="venue-name">ICLR 2025</span></div>
+                <div class="pub-links">
+                    <a href="#">Paper</a>
+                    <a href="#">Code</a>
+                    <a href="https://mme-realworld.github.io/">Project</a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://skywork-r1v4.netlify.app/">Skywork-R1V4: Toward Agentic Multimodal Intelligence through Interleaved Thinking with Images and DeepResearch</a>
+                    <span class="pub-badge">First Author</span>
+                    <span class="github-stars">
+                        <svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+                        3k+
+                    </span>
+                </div>
+                <div class="pub-authors">
+                    <span class="me">Yi-Fan Zhang</span>, et al.
+                </div>
+                <div class="pub-venue">Technical Report</div>
+                <div class="pub-links">
+                    <a href="#">Paper</a>
+                    <a href="https://skywork-r1v4.netlify.app/">Project</a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://thyme-vl.github.io/">Thyme: Think Beyond Images</a>
+                    <span class="pub-badge">First Author</span>
+                    <span class="github-stars">
+                        <svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+                        550+
+                    </span>
+                </div>
+                <div class="pub-authors">
+                    <span class="me">Yi-Fan Zhang</span>, et al.
+                </div>
+                <div class="pub-venue">Technical Report</div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2508.11630">Paper</a>
+                    <a href="https://thyme-vl.github.io/">Project</a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://arxiv.org/abs/2505.02835">R1-Reward: Training Multimodal Reward Model Through Stable Reinforcement Learning</a>
+                    <span class="pub-badge">First Author</span>
+                    <span class="github-stars">
+                        <svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+                        250+
+                    </span>
+                </div>
+                <div class="pub-authors">
+                    <span class="me">Yi-Fan Zhang</span>, et al.
+                </div>
+                <div class="pub-venue">Under review on <span class="venue-name">NeurIPS 2025</span></div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2505.02835">Paper</a>
+                    <a href="https://github.com/yfzhang114/r1_reward">Code</a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://github.com/yfzhang114/SliME">Beyond LLaVA-HD: Diving into High-Resolution Large Multimodal Models</a>
+                    <span class="pub-badge">First Author</span>
+                </div>
+                <div class="pub-authors">
+                    <span class="me">Yi-Fan Zhang</span>, et al.
+                </div>
+                <div class="pub-venue"><span class="venue-name">IEEE T-PAMI 2025</span></div>
+                <div class="pub-links">
+                    <a href="#">Paper</a>
+                    <a href="https://github.com/yfzhang114/SliME">Code</a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="#">Debiasing Large Visual Language Models</a>
+                    <span class="pub-badge">First Author</span>
+                </div>
+                <div class="pub-authors">
+                    <span class="me">Yi-Fan Zhang</span>, et al.
+                </div>
+                <div class="pub-venue"><span class="venue-name">ACM MM 2025</span></div>
+                <div class="pub-links">
+                    <a href="#">Paper</a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://arxiv.org/abs/2509.16127">BaseReward: A Strong Baseline for Multimodal Reward Model</a>
+                    <span class="pub-badge">First Author</span>
+                </div>
+                <div class="pub-authors">
+                    <span class="me">Yi-Fan Zhang</span>, et al.
+                </div>
+                <div class="pub-venue">Preprint</div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2509.16127">Paper</a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://mm-rlhf.github.io/">MM-RLHF: The Next Step Forward in Multimodal LLM Alignment</a>
+                    <span class="pub-badge">First Author</span>
+                </div>
+                <div class="pub-authors">
+                    <span class="me">Yi-Fan Zhang</span>, et al.
+                </div>
+                <div class="pub-venue"><span class="venue-name">ICML 2025</span></div>
+                <div class="pub-links">
+                    <a href="#">Paper</a>
+                    <a href="https://github.com/yfzhang114/MM-RLHF">Code</a>
+                    <a href="https://mm-rlhf.github.io/">Project</a>
+                </div>
+            </div>
+
+            <div class="pub-year">Core Contributor & Corresponding Author Papers</div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="https://arxiv.org/abs/2509.01563">Kwai Keye-VL 1.5 Technical Report</a>
+                    <span class="pub-badge core">Main Contributor</span>
+                    <span class="github-stars">
+                        <svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+                        700+
+                    </span>
+                </div>
+                <div class="pub-authors">
+                    Keye Team, <span class="me">Yi-Fan Zhang</span> (Main Contributor), et al.
+                </div>
+                <div class="pub-venue">Technical Report</div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2509.01563">Paper</a>
+                    <a href="https://github.com/Kwai-Keye/Keye">Code</a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="#">MME-VideoOCR: Evaluating OCR-Based Capabilities of Multimodal LLMs in Video Scenarios</a>
+                    <span class="pub-badge corresponding">Corresponding</span>
+                </div>
+                <div class="pub-authors">
+                    Yang Shi, Huanqian Wang, Wulin Xie, Huanyao Zhang, Lijie Zhao, <span class="me">Yi-Fan Zhang†</span>, et al.
+                </div>
+                <div class="pub-venue">Under review on <span class="venue-name">NeurIPS 2025</span></div>
+                <div class="pub-links">
+                    <a href="#">Paper</a>
+                    <a href="https://github.com/FrankYang-17/MME-VideoOCR">Code</a>
+                </div>
+            </div>
+
+            <div class="pub-item">
+                <div class="pub-title">
+                    <a href="#">Aligning Multimodal LLM with Human Preference: A Survey</a>
+                    <span class="pub-badge corresponding">Corresponding</span>
+                </div>
+                <div class="pub-authors">
+                    Tao Yu, <span class="me">Yi-Fan Zhang†</span>, et al.
+                </div>
+                <div class="pub-venue">Under review on <span class="venue-name">EMNLP 2025</span></div>
+                <div class="pub-links">
+                    <a href="#">Paper</a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="exp-list-simple">
+                <div class="exp-item-simple">
+                    <h3>Kuaishou Technology</h3>
+                    <p>Research Intern · Multimodal Large Language Models</p>
+                </div>
+                <div class="exp-item-simple">
+                    <h3>Skywork AI</h3>
+                    <p>Research Intern · Agentic Multimodal Systems</p>
+                </div>
+                <div class="exp-item-simple">
+                    <h3>ByteDance</h3>
+                    <p>Research Intern</p>
+                </div>
+                <div class="exp-item-simple">
+                    <h3>Squirrel AI</h3>
+                    <p>Research Intern · LLMs for Education</p>
+                </div>
+                <div class="exp-item-simple">
+                    <h3>Alibaba DAMO Academy</h3>
+                    <p>Research Intern · Advised by Prof. Rong Jin</p>
+                </div>
+                <div class="exp-item-simple">
+                    <h3>Microsoft Research Asia</h3>
+                    <p>Research Intern · Advised by Prof. Jingdong Wang</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section id="awards">
+            <h2>Selected Awards</h2>
+            <div class="awards-list">
+                <div class="award-item">
+                    <span class="award-year">2025</span>
+                    <span><strong>Best Paper Nomination Award</strong>, ADS Track at KDD 2025</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2025</span>
+                    <span><strong>AAAI Innovative Applications Award</strong></span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2023</span>
+                    <span><strong>Top Cited Paper</strong>, Neurocomputing</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2023</span>
+                    <span><strong>National Scholarship</strong> & Outstanding Student, University of Chinese Academy of Sciences</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2020</span>
+                    <span><strong>Top Ten Best Student Models</strong>, South China University of Technology (Summa Cum Laude)</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2020</span>
+                    <span><strong>Jingtang He Technology Innovation Scholarship</strong> (Top 1‰, 5 out of 10,000+)</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2019</span>
+                    <span><strong>CUMCM National First Prize</strong> (Top 1% globally)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service -->
+        <section id="service">
+            <h2>Professional Service</h2>
+            
+            <div class="service-category">
+                <h3>Conference Reviewer</h3>
+                <p>
+                    <strong>ML/AI:</strong> ICML (2022-2026), NeurIPS (2022-2026), ICLR (2023-2026), AISTATS (2025), AAAI (2023-2024)<br>
+                    <strong>Vision:</strong> CVPR (2022-2024), ICCV (2023, 2025), ECCV (2022, 2024)<br>
+                    <strong>NLP:</strong> ACL (2025), EMNLP (2023-2024), NAACL (2024)
+                </p>
+            </div>
+            
+            <div class="service-category">
+                <h3>Journal Reviewer</h3>
+                <p>
+                    IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)<br>
+                    IEEE Transactions on Image Processing (TIP)<br>
+                    International Journal of Computer Vision (IJCV)<br>
+                    Transactions on Machine Learning Research (TMLR)<br>
+                    IEEE Transactions on Information Forensics & Security (T-IFS)
+                </p>
+            </div>
+            
+            <div class="service-category">
+                <h3>Workshop Organizer</h3>
+                <p>
+                    PC Member for MILETS@PAKDD'23, DMLR@ICML'23
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Yi-Fan Zhang. Last updated: January 2025.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://info.flagcounter.com/bfsA">
+                    <img src="https://s11.flagcounter.com/count2/bfsA/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_12/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0" style="opacity: 0.7;">
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active nav state
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
