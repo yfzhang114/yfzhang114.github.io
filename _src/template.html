@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yi-Fan Zhang, ByteDance Seed and CASIA / UCAS. Research on real-time multimodal interaction, voice agents, streaming audio-visual systems, and multimodal training and evaluation.">
+  <meta name="theme-color" content="#f8f1e7">
+  <title>Yi-Fan Zhang | Multimodal Interaction &amp; Agents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&amp;family=Source+Serif+Pro:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="designs.css">
+  <script src="app.js" defer></script>
+</head>
+<body data-design="warm">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="design-header container">
+  <div class="identity-bar"><a class="wordmark" href="#about">Yi-Fan Zhang <span lang="zh">张一帆</span></a><a class="current-team" href="https://seed.bytedance.com/en/">ByteDance Seed <span aria-hidden="true">↗</span></a></div>
+  <div class="hero-layout">
+    <div class="hero-copy">
+      <p class="hero-kicker">Multimodal intelligence / Research</p>
+      <h1>Intelligence<br>in <em>interaction.</em></h1>
+      <p class="hero-description">I study how multimodal agents can see, listen, and interact with people in real time.</p>
+      <a class="hero-work" href="#publications">Explore selected research <span aria-hidden="true">↗</span></a>
+    </div>
+    <figure class="hero-portrait">
+      <div class="portrait-frame"><img src="photo.jpg" alt="Yi-Fan Zhang" width="340" height="340"></div>
+      <figcaption><strong>Yi-Fan Zhang</strong><span>Ph.D. Candidate, CASIA / UCAS</span><span>Advised by Prof. <a href="http://people.ucas.ac.cn/~tantieniu">Tieniu Tan</a></span></figcaption>
+    </figure>
+  </div>
+  <div class="hero-bottom"><p>Natural conversation. Continuous perception.</p><div class="contact-links" aria-label="Contact and profiles"><a href="mailto:yifanzhang.cs@gmail.com">Email ↗</a><a href="https://scholar.google.com/citations?user=lUnt8X4AAAAJ">Scholar ↗</a><a href="https://github.com/yfzhang114">GitHub ↗</a><a href="https://www.zhihu.com/people/zyf-98-4">知乎 ↗</a><a href="https://www.xiaohongshu.com/user/profile/606aa8130000000001005c1e">小红书 ↗</a></div></div>
+</header>
+
+  <nav aria-label="Main navigation">
+    <div class="container"><ul>
+      <li><a href="#about" class="active" aria-current="location">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#service">Service</a></li>
+    </ul></div>
+  </nav>
+
+  <main class="container" id="main">
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About Me</h2>
+      <div class="about-content">
+        <p>I am currently with <strong>ByteDance Seed</strong> and a Ph.D. candidate at the <strong>Institute of Automation, Chinese Academy of Sciences (CASIA)</strong> and the <strong>University of Chinese Academy of Sciences (UCAS)</strong>, advised by Prof. <a href="http://people.ucas.ac.cn/~tantieniu">Tieniu Tan</a>.</p>
+        <p>My research focuses on <strong>multimodal intelligence</strong>. I believe natural, real-time interaction is an important next step for multimodal models. I am particularly interested in <strong>voice agents</strong> and <strong>streaming audio-visual systems</strong> that continuously perceive their surroundings and interact with people through <strong>full-duplex conversations</strong>. Questions that interest me include when an agent should respond, how it should handle interruptions, and how memory and tool use can support sustained interaction.</p>
+        <p>My previous work spans multimodal model training and evaluation, post-training and reward modeling, and agentic multimodal systems, with <strong>15+ papers as first, co-first, or corresponding author</strong> at leading venues. These experiences shape my current interest in building interactive agents that understand people and their environments, respond with appropriate timing, and act reliably.</p>
+      </div>
+      <dl class="metrics" aria-label="Research impact">{{METRICS}}</dl>
+      <p class="metrics-note">Citation snapshot: <time datetime="{{UPDATED_ISO}}">{{UPDATED}}</time>. <a href="{{SCHOLAR}}">Latest figures on Google Scholar</a>.</p>
+      <div class="highlight-box"><strong>Open to research discussions and collaborations</strong> on real-time multimodal interaction, voice agents, and the training and evaluation of interactive systems.</div>
+      <p class="previous-work">Previously, I have been fortunate to work with Prof. <a href="https://jingdongwang2017.github.io/">Jingdong Wang</a> at Microsoft Research Asia and Prof. <a href="https://scholar.google.com/citations?user=CS5uNscAAAAJ">Rong Jin</a> at Alibaba DAMO Academy. I have also interned at ByteDance, Kuaishou, Skywork, and Squirrel AI.</p>
+    </section>
+
+    <section id="research" aria-labelledby="research-title">
+      <h2 id="research-title">Research Interests</h2>
+      <div class="research-list">
+        <article class="research-item current-focus">
+          <p class="eyebrow">Current focus</p>
+          <h3>Real-Time Multimodal Interaction</h3>
+          <p>Voice agents, streaming audio-visual perception, and full-duplex dialogue. I am interested in how an agent follows a changing environment and handles turn-taking, pauses, and interruptions with appropriate timing.</p>
+          <p class="related-work">Related work: <a href="https://arxiv.org/abs/2501.01957">VITA-1.5</a>, <a href="https://arxiv.org/abs/2603.20422">PEARL</a>, <a href="https://arxiv.org/abs/2510.21817">VITA-E</a>.</p>
+        </article>
+        <article class="research-item">
+          <h3>Multimodal Agents &amp; Memory</h3>
+          <p>Tool use, active exploration, and memory for sustained, context-aware interaction. My work includes <a href="https://thyme-vl.github.io/">Thyme</a>, <a href="https://skywork-r1v4-lite.netlify.app/">Skywork-R1V4</a>, and <a href="https://arxiv.org/abs/2605.08762">Omni-DeepSearch</a>. I am interested in how perception and memory inform what an agent does next.</p>
+        </article>
+        <article class="research-item">
+          <h3>Post-Training &amp; Reward Modeling</h3>
+          <p>Learning from preferences and feedback to improve multimodal behavior, through <a href="https://mm-rlhf.github.io/">MM-RLHF</a>, <a href="https://github.com/yfzhang114/r1_reward">R1-Reward</a>, and <a href="https://arxiv.org/abs/2509.16127">BaseReward</a>. I am also interested in rubric-based rewards and self-evolving reward systems.</p>
+        </article>
+        <article class="research-item">
+          <h3>Multimodal Training &amp; Evaluation</h3>
+          <p>Developing models such as <a href="https://github.com/yfzhang114/SliME">SliME</a>, <a href="https://github.com/Kwai-Keye/Keye">Keye-VL</a>, and <a href="https://github.com/VITA-MLLM/VITA">VITA</a>, alongside benchmarks such as <a href="https://mme-realworld.github.io/">MME-RealWorld</a>, <a href="https://mme-unify.github.io/">MME-Unify</a>, and <a href="https://github.com/FrankYang-17/MME-VideoOCR">MME-VideoOCR</a>. I have also contributed to <a href="https://github.com/open-compass/VLMEvalKit">VLMEvalKit</a> and the <a href="https://arxiv.org/abs/2411.15296">MME-Survey</a>. I aim to build evaluations that reflect real-world needs and human preferences.</p>
+        </article>
+      </div>
+      <p class="research-note">Earlier interests include continual learning, out-of-distribution generalization, time-series forecasting, AI for education, and content moderation.</p>
+      <p class="reading-link">I also maintain <a href="https://github.com/yfzhang114/Awesome-Multimodal-Large-Language-Models">reading notes on multimodal models, LLMs, and diffusion models</a>.</p>
+    </section>
+
+    <section id="news" aria-labelledby="news-title">
+      <h2 id="news-title">News</h2>
+      <ul class="news-list">{{NEWS}}</ul>
+      <details class="older-news"><summary>Earlier news, 2022–2025</summary><ul class="news-list">{{OLDER_NEWS}}</ul></details>
+    </section>
+
+    <section id="publications" aria-labelledby="publications-title">
+      <h2 id="publications-title">Selected Publications</h2>
+      <p class="section-intro">Selected work grouped by research direction. Full publication list on <a href="{{SCHOLAR}}">Google Scholar</a>. * Equal contribution. † Corresponding author.</p>
+      {{PUBLICATIONS}}
+      <p class="earlier-research">For earlier work on domain generalization, adaptation, and time-series forecasting, see <a href="{{SCHOLAR}}">Google Scholar</a>, <a href="https://github.com/yfzhang114/AdaNPC">AdaNPC</a>, and <a href="https://github.com/yfzhang114/OneNet">OneNet</a>.</p>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Experience</h2>
+      <article class="current-position"><h3>ByteDance Seed</h3><p>Current affiliation</p><p>Research interests in real-time multimodal interaction and agents.</p></article>
+      <h3 class="minor-heading">Previous Research Internships</h3>
+      <div class="exp-list-simple">
+        <article class="exp-item-simple"><h3>Kuaishou Technology</h3><p>Multimodal Large Language Models</p></article>
+        <article class="exp-item-simple"><h3>Skywork AI</h3><p>Agentic Multimodal Systems</p></article>
+        <article class="exp-item-simple"><h3>ByteDance</h3><p>Research Intern</p></article>
+        <article class="exp-item-simple"><h3>Squirrel AI</h3><p>LLMs for Education</p></article>
+        <article class="exp-item-simple"><h3>Alibaba DAMO Academy</h3><p>Advised by Prof. Rong Jin</p></article>
+        <article class="exp-item-simple"><h3>Microsoft Research Asia</h3><p>Advised by Prof. Jingdong Wang</p></article>
+      </div>
+    </section>
+
+    <section id="awards" aria-labelledby="awards-title">
+      <h2 id="awards-title">Selected Awards</h2>
+      <ul class="awards-list">
+        <li><span class="award-year">2026</span><span><strong>Chinese Academy of Sciences President’s Scholarship</strong>（中科院院长奖学金）</span></li>
+        <li><span class="award-year">2025</span><span><strong>BYD Scholarship</strong>（比亚迪奖学金）</span></li>
+        <li><span class="award-year">2025</span><span><strong>Best Paper Nomination Award</strong>, ADS Track at KDD 2025</span></li>
+        <li><span class="award-year">2025</span><span><strong>AAAI Innovative Applications Award</strong></span></li>
+        <li><span class="award-year">2023</span><span><strong>Top Cited Paper</strong>, Neurocomputing</span></li>
+        <li><span class="award-year">2023</span><span><strong>National Scholarship</strong> &amp; Outstanding Student, University of Chinese Academy of Sciences</span></li>
+        <li><span class="award-year">2020</span><span><strong>Top Ten Best Student Models</strong>, South China University of Technology (Summa Cum Laude)</span></li>
+        <li><span class="award-year">2020</span><span><strong>Jingtang He Technology Innovation Scholarship</strong> (Top 1‰, 5 out of 10,000+)</span></li>
+        <li><span class="award-year">2019</span><span><strong>CUMCM National First Prize</strong> (Top 1% globally)</span></li>
+      </ul>
+    </section>
+
+    <section id="service" aria-labelledby="service-title">
+      <h2 id="service-title">Professional Service</h2>
+      <div class="service-category"><h3>Conference Reviewer</h3><p><strong>ML/AI:</strong> ICML (2022–2026), NeurIPS (2022–2026), ICLR (2023–2026), AISTATS (2025), AAAI (2023–2024)<br><strong>Vision:</strong> CVPR (2022–2024), ICCV (2023, 2025), ECCV (2022, 2024)<br><strong>NLP:</strong> ACL (2025), EMNLP (2023–2024), NAACL (2024)</p></div>
+      <div class="service-category"><h3>Journal Reviewer</h3><p>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)<br>IEEE Transactions on Image Processing (TIP)<br>International Journal of Computer Vision (IJCV)<br>Transactions on Machine Learning Research (TMLR)<br>IEEE Transactions on Information Forensics &amp; Security (T-IFS)</p></div>
+      <div class="service-category"><h3>Workshop Organizer</h3><p>PC Member for MILETS@PAKDD’23, DMLR@ICML’23</p></div>
+    </section>
+  </main>
+  <footer><div class="container"><p>© 2026 Yi-Fan Zhang. Last updated: <time datetime="{{UPDATED_ISO}}">{{UPDATED}}</time>.</p><p><a href="mailto:{{EMAIL}}">{{EMAIL}}</a></p></div></footer>
+</body>
+</html>
